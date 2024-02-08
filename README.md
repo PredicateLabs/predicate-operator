@@ -1,2 +1,2 @@
-# aethos-operator-binaries
-This repo comprises of binaries to run the Aethos operator
+# aethos-operator
+This repo comprises of binaries/packages to run the Aethos operator
