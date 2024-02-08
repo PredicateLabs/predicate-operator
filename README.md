@@ -1,11 +1,16 @@
-# aethos-operator
-This repo comprises of binaries/packages to run the Aethos operator. There's 2 main ways for running the operator - via `docker` or `binary`
+# For Aethos Operators
+Welcome to the Aethos Operator documentation. This guide provides comprehensive instructions on setting up and running 
+the Aethos Operator using either Docker or a binary executable.
 
 ## Configuration
-There's multiple ways of passing config to the operator - via `cli` or `config.yaml` file. If you pass both, CLI will overwrite the config from file.
-For docker container, it's preferred to pass via cli. For use with binary, it's preferred to pass via config.yaml.
+The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file. 
+If both methods are used, CLI arguments will take precedence over configurations specified in the config.yaml file.
+### Configuration Preferences:
+* Docker: It's preferred to use CLI arguments.
+* Binary: It's preferred to use the config.yaml file.
 
-Here's the configuration arguments that can be passed to the operator:
+### Configuration Options
+Below are the available configuration options for the Aethos Operator:
 
 ```sh
 GLOBAL OPTIONS:
@@ -23,31 +28,43 @@ GLOBAL OPTIONS:
    --help, -h                                           show help
 ```
 
-## Set up with Docker
+## Docker Setup
+Docker Setup
 
-For docker, you would need to set up git credentials to pull from the `ghcr.io` container registry. You can refer to this [working with container registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) article
-Mainly, you need to follow the following steps -
+### Prerequisites
+* Docker installed on your machine.
+* A GitHub Personal Access Token (PAT) with packages permissions. Create a PAT here.
 
- 1. Get person access token (classic) from your acocunt. Make sure it has permissions to `packages` as referred to in article
- 2. Save your personal access token (classic). Recommend saving your token as an environment variable `export CR_PAT=YOUR_TOKEN`
- 3. Login to container registry `echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin`
- 4. Once logged in, you can pull the image `docker pull ghcr.io/aethosnetwork/operator:latest`
- 5. You can run help command like following - `docker run ghcr.io/aethosnetwork/operator:latest --help`
-    
-Now, you can run the operator by using following command:
+### Steps
+1. Authenticate with GitHub Container Registry:
+   * Setup a GitHub Personal Access Token (PAT) with packages permissions (refer to [this article](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for more details) . 
+   * Export your PAT as an environment variable: `export CR_PAT=YOUR_TOKEN`.
+   * Log in to the container registry: `echo $CR_PAT | docker login ghcr.io -u GITHUB_USERNAME --password-stdin`
+2. Pull the Docker Image:
+    * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
 
-```sh
-docker run ghcr.io/aethosnetwork/operator:latest --config /app/config.yaml --ecdsa-private-key <private_key_starting_with_0x> --aggregator-server-ip-port-address 34.41.39.208:50051
-```
+3. Run the Operator:
+   * Use the following command template to run the operator, replacing placeholders with actual values:
+   ```sh 
+     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051
+    ```
+   * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
 
-## Set up with binary
 
-In the `v0` folder, there's 2 available binaries - for `darwin/arm64` and `linux/amd64` architectures. You can use either or depending on the platform you are running on. Steps - 
+## Binary Setup
 
-1. You can run help command like following `./operator-v0.0.0-darwin-arm64 --help`
+### Prerequisites
+1. Determine your system architecture (darwin/arm64 for macOS on ARM, linux/amd64 for Linux on AMD64).
 
-Now, you can update the `config.yaml` with your configuration variables that you have been provided and run
-
-```sh
-./operator-v0.0.0-darwin-arm64 --config ../config.yaml --ecdsa-private-key <private_key_starting_with_0x>
-```
+### Steps
+1. Navigate to the 'v0' Directory:
+   * This contains binaries for supported architectures.
+2. Review Help Documentation:
+   * Execute: ./operator-v0.0.0-YOUR_ARCH --help, replacing YOUR_ARCH with your actual architecture.
+3. Run the Operator:
+   * First, update the config.yaml with your provided configuration variables.
+   * Then, execute the binary with your configuration:
+    ```sh
+    ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key YOUR_PRIVATE_KEY
+    ```
+    * Replace YOUR_ARCH, YOUR_CONFIG_PATH, and YOUR_PRIVATE_KEY with the appropriate values for your setup.
