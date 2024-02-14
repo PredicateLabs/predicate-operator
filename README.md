@@ -47,7 +47,7 @@ Docker Setup
 3. Run the Operator:
    * Use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcas {PUBLIC_IP:9010}
+     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010}
     ```
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
 
