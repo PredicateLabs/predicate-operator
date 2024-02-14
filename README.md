@@ -66,6 +66,6 @@ Docker Setup
    * First, update the config.yaml with your provided configuration variables.
    * Then, execute the binary with your configuration:
     ```sh
-    ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key YOUR_PRIVATE_KEY
+    ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key YOUR_PRIVATE_KEY --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010}
     ```
    * Replace YOUR_ARCH, YOUR_CONFIG_PATH, and YOUR_PRIVATE_KEY with the appropriate values for your setup.
