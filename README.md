@@ -1,9 +1,9 @@
 # For Aethos Operators
-Welcome to the Aethos Operator documentation. This guide provides comprehensive instructions on setting up and running 
+Welcome to the Aethos Operator documentation. This guide provides comprehensive instructions on setting up and running
 the Aethos Operator using either Docker or a binary executable.
 
 ## Configuration
-The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file. 
+The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
 If both methods are used, CLI arguments will take precedence over configurations specified in the config.yaml file.
 ### Configuration Preferences:
 * Docker: It's preferred to use CLI arguments.
@@ -14,7 +14,7 @@ Below are the available configuration options for the Aethos Operator:
 
 ```sh
 GLOBAL OPTIONS:
-   --config FILE                                        Load configuration from FILE
+ --config FILE                                        Load configuration from FILE
    --ecdsa-private-key value                            Ethereum private key for signing messages [$ECDSA_PRIVATE_KEY]
    --aggregator-server-ip-port-address value            Aggregator server IP:PORT address [$AGGREGATOR_SERVER_IP_PORT_ADDRESS]
    --operator-id value                                  Operator ID [$OPERATOR_ID]
@@ -38,16 +38,16 @@ Docker Setup
 
 ### Steps
 1. Authenticate with GitHub Container Registry:
-   * Setup a GitHub Personal Access Token (PAT) with packages permissions (refer to [this article](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for more details) . 
+   * Setup a GitHub Personal Access Token (PAT) with packages permissions (refer to [this article](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for more details) .
    * Export your PAT as an environment variable: `export CR_PAT=YOUR_TOKEN`.
    * Log in to the container registry: `echo $CR_PAT | docker login ghcr.io -u GITHUB_USERNAME --password-stdin`
 2. Pull the Docker Image:
-    * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
+   * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
 
 3. Run the Operator:
    * Use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051
+     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcas {PUBLIC_IP:9010}
     ```
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
 
@@ -68,4 +68,4 @@ Docker Setup
     ```sh
     ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key YOUR_PRIVATE_KEY
     ```
-    * Replace YOUR_ARCH, YOUR_CONFIG_PATH, and YOUR_PRIVATE_KEY with the appropriate values for your setup.
+   * Replace YOUR_ARCH, YOUR_CONFIG_PATH, and YOUR_PRIVATE_KEY with the appropriate values for your setup.
