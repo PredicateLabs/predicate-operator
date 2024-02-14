@@ -47,7 +47,7 @@ Docker Setup
 3. Run the Operator:
    * Use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010}
+     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010} --operator-id ${YOUR_OPERATOR_ID}
     ```
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
 
@@ -66,6 +66,6 @@ Docker Setup
    * First, update the config.yaml with your provided configuration variables.
    * Then, execute the binary with your configuration:
     ```sh
-    ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key YOUR_PRIVATE_KEY --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010}
+    ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key YOUR_PRIVATE_KEY --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010} --operator-id ${YOUR_OPERATOR_ID}
     ```
    * Replace YOUR_ARCH, YOUR_CONFIG_PATH, and YOUR_PRIVATE_KEY with the appropriate values for your setup.
