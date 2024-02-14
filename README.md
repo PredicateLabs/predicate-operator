@@ -15,14 +15,15 @@ Below are the available configuration options for the Aethos Operator:
 ```sh
 GLOBAL OPTIONS:
    --config FILE                                        Load configuration from FILE
-   --ecdsa-private-key value                            Ethereum private key [$ECDSA_PRIVATE_KEY]
+   --ecdsa-private-key value                            Ethereum private key for signing messages [$ECDSA_PRIVATE_KEY]
    --aggregator-server-ip-port-address value            Aggregator server IP:PORT address [$AGGREGATOR_SERVER_IP_PORT_ADDRESS]
    --operator-id value                                  Operator ID [$OPERATOR_ID]
    --ecdsa-private-key-store-path value                 Ethereum private key store path [$ECDSA_PRIVATE_KEY_STORE_PATH]
-   --environment value                                  Environment [$ENVIRONMENT]
-   --node-task-server-host-and-port-to-broadcast value  Node task server host and port to receive broadcast messages [$NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST]
-   --node-eigen-api-server-host-and-port value          Node eigen api server host and port [$NODE_EIGEN_API_SERVER_HOST_AND_PORT]
-   --eigen-metrics-ip-port-address value                Eigen metrics ip port address [$EIGEN_METRICS_IP_PORT_ADDRESS]
+   --ecdsa-private-key-password value                   private key password for the key store file [$ECDSA_PRIVATE_KEY_PASSWORD]
+   --environment value                                  Environment (development, production) [$ENVIRONMENT]
+   --node-task-server-host-and-port-to-broadcast value  host and port to receive broadcast messages on [$NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST]
+   --node-eigen-api-server-host-and-port value          host and port for eigen api server [$NODE_EIGEN_API_SERVER_HOST_AND_PORT]
+   --eigen-metrics-ip-port-address value                host and port for metrics server [$EIGEN_METRICS_IP_PORT_ADDRESS]
    --enable-metrics                                     Enable metrics [$ENABLE_METRICS]
    --enable-node-api                                    Enable node api [$ENABLE_NODE_API]
    --help, -h                                           show help
