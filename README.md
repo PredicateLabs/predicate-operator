@@ -69,3 +69,4 @@ Docker Setup
     ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key YOUR_PRIVATE_KEY --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010} --operator-id ${YOUR_OPERATOR_ID}
     ```
    * Replace YOUR_ARCH, YOUR_CONFIG_PATH, and YOUR_PRIVATE_KEY with the appropriate values for your setup.
+   * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
