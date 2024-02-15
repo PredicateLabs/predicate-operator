@@ -34,7 +34,7 @@ Docker Setup
 
 ### Prerequisites
 * Docker installed on your machine.
-* A GitHub Personal Access Token (PAT) with packages permissions. Create a PAT here.
+* A Classic GitHub Personal Access Token (PAT) with packages permissions. Create a PAT [here](https://github.com/settings/tokens). (**NOTE**: must be a classic token with all packages and workflow permissions enabled)
 
 ### Steps
 1. Authenticate with GitHub Container Registry:
@@ -47,7 +47,7 @@ Docker Setup
 3. Run the Operator:
    * Use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010} --operator-id ${YOUR_OPERATOR_ID}
+     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010} --operator-id ${YOUR_OPERATOR_ID} --config /app/config.yaml
     ```
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
 
