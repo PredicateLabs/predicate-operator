@@ -35,6 +35,7 @@ Docker Setup
 ### Prerequisites
 * Docker installed on your machine.
 * A Classic GitHub Personal Access Token (PAT) with packages permissions. Create a PAT [here](https://github.com/settings/tokens). (**NOTE**: must be a classic token with all packages and workflow permissions enabled)
+* A Goerli account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 
 ### Steps
 1. Authenticate with GitHub Container Registry:
@@ -56,6 +57,7 @@ Docker Setup
 
 ### Prerequisites
 1. Determine your system architecture (darwin/arm64 for macOS on ARM, linux/amd64 for Linux on AMD64).
+2. A Goerli account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 
 ### Steps
 1. Navigate to the 'v0' Directory:
