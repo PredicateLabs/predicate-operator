@@ -35,6 +35,7 @@ Docker Setup
 ### Prerequisites
 * Docker installed on your machine.
 * A Classic GitHub Personal Access Token (PAT) with packages permissions. Create a PAT [here](https://github.com/settings/tokens). (**NOTE**: must be a classic token with all packages and workflow permissions enabled)
+* A Goerli account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 
 ### Steps
 1. Authenticate with GitHub Container Registry:
@@ -45,10 +46,15 @@ Docker Setup
    * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
 
 3. Run the Operator:
-   * Use the following command template to run the operator, replacing placeholders with actual values:
+      * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-     docker run ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010} --operator-id ${YOUR_OPERATOR_ID} --config /app/config.yaml
+     docker run --network host ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP}:9010 --operator-id ${YOUR_OPERATOR_ID} --config /app/config.yaml --enable-metrics
     ```
+      * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
+   ```sh
+     docker run --network host -v "{ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH/KEY_FILE_NAME.json}:/app/operatorkeys.json" ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key-store-path /app/operatorkeys.json --ecdsa-private-key-password {ECDSA_KEYSTORE_PASSWORD} --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP}:9010 --operator-id {YOUR_OPERATOR_ID} --config /app/config.yaml --enable-metrics
+   ```
+   
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
 
 
@@ -56,6 +62,7 @@ Docker Setup
 
 ### Prerequisites
 1. Determine your system architecture (darwin/arm64 for macOS on ARM, linux/amd64 for Linux on AMD64).
+2. A Goerli account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 
 ### Steps
 1. Navigate to the 'v0' Directory:
