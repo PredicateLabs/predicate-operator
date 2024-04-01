@@ -71,13 +71,13 @@ Docker Setup
 1. Navigate to the 'v0' Directory:
    * This contains binaries for supported architectures.
 2. Review Help Documentation:
-   * Execute: ./operator-v0.0.0-YOUR_ARCH --help, replacing YOUR_ARCH with your actual architecture.
+   * Execute: ./operator-<RELEASE_VERSION>-<ARCH> --help, replacing ARCH with your actual architecture and <RELEASE_VERSION> with latest release.
 3. Run the Operator:
    * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
    * Update the config.yaml with your provided configuration variables. Remember to update the **eth_rpc_url** for reading on chain and **node_task_server_host_and_port_to_broadcast** to receive broadcasted messages
    * Then, execute the binary with your configuration:
     ```sh
-    ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key ${PRIVATE_KEY} --operator-id ${OPERATOR_ID}
+    ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --ecdsa-private-key ${PRIVATE_KEY} --operator-id ${OPERATOR_ID}
     ```
-   * Replace YOUR_ARCH, YOUR_CONFIG_PATH, and YOUR_PRIVATE_KEY with the appropriate values for your setup.
+   * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY with the appropriate values for your setup.
    
