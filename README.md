@@ -14,7 +14,7 @@ Below are the available configuration options for the Aethos Operator:
 
 ```sh
 GLOBAL OPTIONS:
- --config FILE                                        Load configuration from FILE
+   --config FILE                                        Load configuration from FILE
    --ecdsa-private-key value                            Ethereum private key for signing messages [$ECDSA_PRIVATE_KEY]
    --aggregator-server-ip-port-address value            Aggregator server IP:PORT address [$AGGREGATOR_SERVER_IP_PORT_ADDRESS]
    --operator-id value                                  Operator ID [$OPERATOR_ID]
@@ -26,6 +26,8 @@ GLOBAL OPTIONS:
    --eigen-metrics-ip-port-address value                host and port for metrics server [$EIGEN_METRICS_IP_PORT_ADDRESS]
    --enable-metrics                                     Enable metrics [$ENABLE_METRICS]
    --enable-node-api                                    Enable node api [$ENABLE_NODE_API]
+   --eth-rpc-url value                                  Ethereum RPC URL [$ETH_RPC_URL]
+   --avs-service-manager-address value                  AVS Service Manager contract address [$AVS_SERVICE_MANAGER_ADDRESS]
    --help, -h                                           show help
 ```
 
@@ -35,7 +37,8 @@ Docker Setup
 ### Prerequisites
 * Docker installed on your machine.
 * A Classic GitHub Personal Access Token (PAT) with packages permissions. Create a PAT [here](https://github.com/settings/tokens). (**NOTE**: must be a classic token with all packages and workflow permissions enabled)
-* A Goerli account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
+* A Holesky account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
+* ETH node (full/archive). You can point to your local instance or get public endpoint. This is needed to query the AVS service manager.This can be pruned for now but in future, we will need archive node. 
 
 ### Steps
 1. Authenticate with GitHub Container Registry:
@@ -48,11 +51,11 @@ Docker Setup
 3. Run the Operator:
       * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-     docker run --network host ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key YOUR_PRIVATE_KEY --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP}:9010 --operator-id ${YOUR_OPERATOR_ID} --config /app/config.yaml --enable-metrics
+     docker run --network host ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key ${PRIVATE_KEY} --aggregator-server-ip-port-address aggregator-testnet-e0391b03c4b90871.elb.us-east-2.amazonaws.com:50051 --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} --avs-service-manager-address=0xdE93E0dA148e1919bb7f33cd8847F96e45791210 --eth-rpc-url=${ETH_RPC_URL} --operator-id ${OPERATOR_ID} --config /app/config.yaml --enable-metrics
     ```
       * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh
-     docker run --network host -v "{ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH/KEY_FILE_NAME.json}:/app/operatorkeys.json" ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key-store-path /app/operatorkeys.json --ecdsa-private-key-password {ECDSA_KEYSTORE_PASSWORD} --aggregator-server-ip-port-address 34.41.39.208:50051 --node-task-server-host-and-port-to-broadcast {PUBLIC_IP}:9010 --operator-id {YOUR_OPERATOR_ID} --config /app/config.yaml --enable-metrics
+     docker run --network host -v "{ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH/KEY_FILE_NAME.json}:/app/operatorkeys.json" ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key-store-path /app/operatorkeys.json --ecdsa-private-key-password ${ECDSA_KEYSTORE_PASSWORD} --aggregator-server-ip-port-address aggregator-testnet-e0391b03c4b90871.elb.us-east-2.amazonaws.com:50051 --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} --avs-service-manager-address=0xdE93E0dA148e1919bb7f33cd8847F96e45791210 --eth-rpc-url=${ETH_RPC_URL} --operator-id ${OPERATOR_ID} --config /app/config.yaml --enable-metrics
    ```
    
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
@@ -70,10 +73,11 @@ Docker Setup
 2. Review Help Documentation:
    * Execute: ./operator-v0.0.0-YOUR_ARCH --help, replacing YOUR_ARCH with your actual architecture.
 3. Run the Operator:
-   * First, update the config.yaml with your provided configuration variables.
+   * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
+   * Update the config.yaml with your provided configuration variables. Remember to update the **eth_rpc_url** for reading on chain and **node_task_server_host_and_port_to_broadcast** to receive broadcasted messages
    * Then, execute the binary with your configuration:
     ```sh
-    ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key YOUR_PRIVATE_KEY --node-task-server-host-and-port-to-broadcast {PUBLIC_IP:9010} --operator-id ${YOUR_OPERATOR_ID}
+    ./operator-v0.0.0-YOUR_ARCH --config YOUR_CONFIG_PATH/config.yaml --ecdsa-private-key ${PRIVATE_KEY} --operator-id ${OPERATOR_ID}
     ```
    * Replace YOUR_ARCH, YOUR_CONFIG_PATH, and YOUR_PRIVATE_KEY with the appropriate values for your setup.
-   * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
+   
