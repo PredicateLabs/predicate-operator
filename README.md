@@ -1,6 +1,11 @@
 # For Aethos Operators
 Welcome to the Aethos Operator documentation. This guide provides comprehensive instructions on setting up and running
-the Aethos Operator using either Docker or a binary executable.
+the Aethos Operator using either Docker or a binary executable
+
+## Current Testnet
+Currently, we are running testnet phase 2 on holesky.
+- Service proxy contract is ```0xdE93E0dA148e1919bb7f33cd8847F96e45791210```
+- Aggregator middleware is running at ```aggregator-testnet-e0391b03c4b90871.elb.us-east-2.amazonaws.com:50051```
 
 ## Configuration
 The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
