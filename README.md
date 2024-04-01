@@ -10,7 +10,7 @@ Currently, we are running testnet phase 2 on holesky.
 ## Prerequisites
 * Holesky account: Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 * ETH node (full/archive): You can point to your local instance or get public endpoint. This is needed to query the AVS service manager.This can be pruned for now but in future, we will need archive node.
-* Enable operator: Currently, our testnet is permissioned. As part of this, you will have to get your operator addresses allowlisted. Please reach out to our time do so.
+* Enable operator: Currently, our testnet is permissioned. As part of this, you will have to get your operator addresses allowlisted. Please reach out to us to do so.
 
 ## Configuration
 The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
