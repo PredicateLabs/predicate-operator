@@ -3,14 +3,14 @@ Welcome to the Aethos Operator documentation. This guide provides comprehensive 
 the Aethos Operator using either Docker or a binary executable
 
 ## Testnet
-Currently, we are running testnet phase 2 on holesky.
-- Service proxy contract is ```0xdE93E0dA148e1919bb7f33cd8847F96e45791210```
-- Aggregator middleware is running at ```aggregator-testnet-e0391b03c4b90871.elb.us-east-2.amazonaws.com:50051```
+Testnet Phase Two is underway on Holesky 
+- Service Manager Proxy [```0xdE93E0dA148e1919bb7f33cd8847F96e45791210```](https://holesky.etherscan.io/address/0xdE93E0dA148e1919bb7f33cd8847F96e45791210)
+- Aggregator is running on ```https://holesky.task.aethos.network/```
 
 ## Prerequisites
 * Holesky account: Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
-* ETH node (full/archive): You can point to your local instance or get public endpoint. This is needed to query the AVS service manager.This can be pruned for now but in future, we will need archive node.
-* Enable operator: Currently, our testnet is permissioned. As part of this, you will have to get your operator addresses allowlisted. Please reach out to us to do so.
+* ETH node (full/archive): You can point to your local instance or to an RPC provider.
+* Enable operator: Currently, Aethos testnet is permissioned. As part of this, you will have to get your operator addresses on the allowlist. Please reach out to us if this has not already been complete.
 
 ## Configuration
 The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
@@ -45,7 +45,7 @@ GLOBAL OPTIONS:
 ## Docker Setup
 ### Steps
 1. Authenticate with GitHub Container Registry:
-   * Setup a GitHub Personal Access Token (PAT) with packages permissions (refer to [this article](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for more details) **NOTE**: must be a classic token with all packages and workflow permissions enabled
+   * Setup a GitHub Personal Access Token (PAT) with the packages permissions (refer to [this article](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for more details) **NOTE**: must be a classic token with all packages and workflow permissions enabled.
    * Export your PAT as an environment variable: `export CR_PAT=YOUR_TOKEN`.
    * Log in to the container registry: `echo $CR_PAT | docker login ghcr.io -u GITHUB_USERNAME --password-stdin`
 2. Pull the Docker Image:
@@ -74,10 +74,11 @@ GLOBAL OPTIONS:
    * Execute: ./operator-<RELEASE_VERSION>-<ARCH> --help, replacing ARCH with your actual architecture and <RELEASE_VERSION> with latest release.
 4. Run the Operator:
    * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
-   * Update the config.yaml with your provided configuration variables. Remember to update the **eth_rpc_url** for reading on chain and **node_task_server_host_and_port_to_broadcast** to receive broadcasted messages
+   * Update the config.yaml with your provided configuration variables. Remember to update the **eth_rpc_url** and **node_task_server_host_and_port_to_broadcast**.
    * Then, execute the binary with your configuration:
-    ```sh
-    ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --ecdsa-private-key ${PRIVATE_KEY} --operator-id ${OPERATOR_ID}
-    ```
+      ```sh
+      ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --ecdsa-private-key ${PRIVATE_KEY} --operator-id ${OPERATOR_ID}
+      ```
    * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY with the appropriate values for your setup.
+   
    
