@@ -5,7 +5,7 @@ the Aethos Operator using either Docker or a binary executable
 ## Testnet
 Testnet Phase Two is underway on Holesky 
 - Service Manager Proxy [```0xdE93E0dA148e1919bb7f33cd8847F96e45791210```](https://holesky.etherscan.io/address/0xdE93E0dA148e1919bb7f33cd8847F96e45791210)
-- Aggregator is running on ```https://holesky.task.aethos.network/```
+- Aggregator is running on ```holesky.task.aethos.network:50051```
 
 ## Prerequisites
 * Holesky account: Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
@@ -54,11 +54,11 @@ GLOBAL OPTIONS:
 3. Run the Operator:
       * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-     docker run --network host ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key ${PRIVATE_KEY} --aggregator-server-ip-port-address aggregator-testnet-e0391b03c4b90871.elb.us-east-2.amazonaws.com:50051 --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} --avs-service-manager-address=0xdE93E0dA148e1919bb7f33cd8847F96e45791210 --eth-rpc-url=${ETH_RPC_URL} --operator-id ${OPERATOR_ID} --config /app/config.yaml --enable-metrics
+     docker run --network host ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key ${PRIVATE_KEY} --aggregator-server-ip-port-address holesky.task.aethos.network:50051 --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} --avs-service-manager-address=0xdE93E0dA148e1919bb7f33cd8847F96e45791210 --eth-rpc-url=${ETH_RPC_URL} --operator-id ${OPERATOR_ID} --config /app/config.yaml --enable-metrics
     ```
       * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh
-     docker run --network host -v "{ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH/KEY_FILE_NAME.json}:/app/operatorkeys.json" ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key-store-path /app/operatorkeys.json --ecdsa-private-key-password ${ECDSA_KEYSTORE_PASSWORD} --aggregator-server-ip-port-address aggregator-testnet-e0391b03c4b90871.elb.us-east-2.amazonaws.com:50051 --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} --avs-service-manager-address=0xdE93E0dA148e1919bb7f33cd8847F96e45791210 --eth-rpc-url=${ETH_RPC_URL} --operator-id ${OPERATOR_ID} --config /app/config.yaml --enable-metrics
+     docker run --network host -v "{ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH/KEY_FILE_NAME.json}:/app/operatorkeys.json" ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key-store-path /app/operatorkeys.json --ecdsa-private-key-password ${ECDSA_KEYSTORE_PASSWORD} --aggregator-server-ip-port-address holesky.task.aethos.network:50051 --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} --avs-service-manager-address=0xdE93E0dA148e1919bb7f33cd8847F96e45791210 --eth-rpc-url=${ETH_RPC_URL} --operator-id ${OPERATOR_ID} --config /app/config.yaml --enable-metrics
    ```
    
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
@@ -71,7 +71,7 @@ GLOBAL OPTIONS:
 2. Navigate to the 'v0' Directory:
    * This contains binaries for supported architectures.
 3. Review Help Documentation:
-   * Execute: ./operator-<RELEASE_VERSION>-<ARCH> --help, replacing ARCH with your actual architecture and <RELEASE_VERSION> with latest release.
+   * Execute: `./operator-<RELEASE_VERSION>-<ARCH> --help`, replacing ARCH with your actual architecture and <RELEASE_VERSION> with latest release.
 4. Run the Operator:
    * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
    * Update the config.yaml with your provided configuration variables. Remember to update the **eth_rpc_url** and **node_task_server_host_and_port_to_broadcast**.

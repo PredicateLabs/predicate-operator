@@ -20,6 +20,6 @@ node_task_server_host_and_port: 0.0.0.0:9010
 # grpc server on which the operator listens for messages from the aggregator
 node_task_server_host_and_port_to_broadcast: 0.0.0.0:9010
 # address which the aggregator listens on for operator signed messages
-aggregator_server_ip_port_address: aggregator-testnet-e0391b03c4b90871.elb.us-east-2.amazonaws.com:50051
+aggregator_server_ip_port_address: holesky.task.aethos.network:50051
 # operator id
 operator_id: operator-xyz
