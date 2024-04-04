@@ -11,6 +11,7 @@ Testnet Phase Two is underway on Holesky
 * Holesky account: Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 * ETH node (full/archive): You can point to your local instance or to an RPC provider.
 * Enable operator: Currently, Aethos testnet is permissioned. As part of this, you will have to get your operator addresses on the allowlist. Please reach out to us if this has not already been complete.
+* Expose 9010 port: Your operator will expose this port to enable inbound tasks.
 
 ## Configuration
 The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
