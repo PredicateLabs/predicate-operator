@@ -22,3 +22,6 @@ node_task_server_host_and_port_to_broadcast: <your_public_ip_address>:9010
 
 # address which the aggregator listens on for operator signed messages
 aggregator_server_ip_port_address: holesky.task.aethos.network:50051
+
+# operator id (your operator public address)
+operator_id: operator-xyz
