@@ -8,10 +8,11 @@ Testnet Phase Two is underway on Holesky
 - Aggregator is running on ```holesky.task.aethos.network:50051```
 
 ## Prerequisites
-* Holesky account: Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
-* ETH node (full/archive): You can point to your local instance or to an RPC provider.
-* Enable operator: Currently, Aethos testnet is permissioned. As part of this, you will have to get your operator addresses on the allowlist. Please reach out to us if this has not already been complete.
-* Expose 9010 port: Your operator will expose this port to enable inbound tasks.
+* **Expose 9010 port:** Your operator will expose this port to enable inbound tasks.
+* **Registered with Eigenlayer on Holesky** Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
+* **Holesky node (full/archive):** You can point to your local instance or to an RPC provider.
+* **Enabled operator:** Aethos testnet is permissioned. Your operator address must be on the allowlist on our Service Manger. Please reach out to us if this has not already been complete.
+
 
 ## Configuration
 The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.

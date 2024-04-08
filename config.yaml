@@ -2,7 +2,7 @@
 environment: production
 
 # ethereum node urls
-eth_rpc_url: <put your eth node url here>
+eth_rpc_url: <holesky_rpc_url>
 
 # avs service manager proxy address (holesky testnet)
 avs_service_manager_address: 0xdE93E0dA148e1919bb7f33cd8847F96e45791210
@@ -11,15 +11,17 @@ avs_service_manager_address: 0xdE93E0dA148e1919bb7f33cd8847F96e45791210
 ecdsa_private_key_store_path: ~/.eigenlayer/aggregator/test.ecdsa.key.json
 
 # avs node spec compliance https://eigen.nethermind.io/docs/spec/intro
-enable_node_api: true
 node_eigen_api_server_host_and_port: 0.0.0.0:8080
-enable_metrics: true
 eigen_metrics_ip_port_address: 0.0.0.0:9090
-# grpc server for communication in between operator and aggregator 
+
+# grpc server for communication in between operator and aggregator
 node_task_server_host_and_port: 0.0.0.0:9010
-# grpc server on which the operator listens for messages from the aggregator
-node_task_server_host_and_port_to_broadcast: 0.0.0.0:9010
+
+# grpc server on which the operator receives tasks
+node_task_server_host_and_port_to_broadcast: <your_public_ip_address>:9010
+
 # address which the aggregator listens on for operator signed messages
 aggregator_server_ip_port_address: holesky.task.aethos.network:50051
-# operator id
+
+# operator id (your operator public address)
 operator_id: operator-xyz
