@@ -8,7 +8,8 @@ Testnet Phase Two is underway on Holesky
 - Aggregator is running on ```holesky.task.aethos.network:50051```
 
 ## Prerequisites
-* **Expose 9010 port:** Your operator will expose this port to enable inbound tasks.
+* **Expose 9010 port:** Your operator will expose this port to enable inbound tasks. 
+* **Expose 9090 port:** Your operator will expose this port to enable metrics collection.
 * **Registered with Eigenlayer on Holesky** Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 * **Holesky node (full/archive):** You can point to your local instance or to an RPC provider.
 * **Enabled operator:** Aethos testnet is permissioned. Your operator address must be on the allowlist on our Service Manger. Please reach out to us if this has not already been complete.
@@ -37,8 +38,6 @@ GLOBAL OPTIONS:
    --node-task-server-host-and-port-to-broadcast value  host and port to receive broadcast messages on [$NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST]
    --node-eigen-api-server-host-and-port value          host and port for eigen api server [$NODE_EIGEN_API_SERVER_HOST_AND_PORT]
    --eigen-metrics-ip-port-address value                host and port for metrics server [$EIGEN_METRICS_IP_PORT_ADDRESS]
-   --enable-metrics                                     Enable metrics [$ENABLE_METRICS]
-   --enable-node-api                                    Enable node api [$ENABLE_NODE_API]
    --eth-rpc-url value                                  Ethereum RPC URL [$ETH_RPC_URL]
    --avs-service-manager-address value                  AVS Service Manager contract address [$AVS_SERVICE_MANAGER_ADDRESS]
    --help, -h                                           show help
@@ -56,11 +55,42 @@ GLOBAL OPTIONS:
 3. Run the Operator:
       * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-     docker run --network host ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key ${PRIVATE_KEY} --aggregator-server-ip-port-address holesky.task.aethos.network:50051 --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} --avs-service-manager-address=0xdE93E0dA148e1919bb7f33cd8847F96e45791210 --eth-rpc-url=${ETH_RPC_URL} --operator-id ${OPERATOR_ID} --config /app/config.yaml --enable-metrics
+      export PRIVATE_KEY="your_private_key"
+      export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="your_operator_ip_addr_and_tasks_port"
+      export ETH_RPC_URL="your_eth_rpc_url"
+      export OPERATOR_ID="your_operator_id"
+      export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
+      export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
+      docker run --network host ghcr.io/aethosnetwork/operator:latest \
+      --ecdsa-private-key ${PRIVATE_KEY} \
+      --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
+      --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
+      --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
+      --eth-rpc-url=${ETH_RPC_URL} \
+      --operator-id ${OPERATOR_ID} \
+      --config /app/config.yaml
+
     ```
       * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh
-     docker run --network host -v "{ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH/KEY_FILE_NAME.json}:/app/operatorkeys.json" ghcr.io/aethosnetwork/operator:latest --ecdsa-private-key-store-path /app/operatorkeys.json --ecdsa-private-key-password ${ECDSA_KEYSTORE_PASSWORD} --aggregator-server-ip-port-address holesky.task.aethos.network:50051 --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} --avs-service-manager-address=0xdE93E0dA148e1919bb7f33cd8847F96e45791210 --eth-rpc-url=${ETH_RPC_URL} --operator-id ${OPERATOR_ID} --config /app/config.yaml --enable-metrics
+      export ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH="/path/to/your/keystore/file.json"
+      export ECDSA_KEYSTORE_PASSWORD="your_ecsda_keystore_password"
+      export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="your_operator_ip_addr_and_tasks_port"
+      export ETH_RPC_URL="your_eth_rpc_url"
+      export OPERATOR_ID="your_operator_id"
+      export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
+      export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
+      docker run --network host \
+      -v "${ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH}:/app/operatorkeys.json" \
+      ghcr.io/aethosnetwork/operator:latest \
+      --ecdsa-private-key-store-path /app/operatorkeys.json \
+      --ecdsa-private-key-password ${ECDSA_KEYSTORE_PASSWORD} \
+      --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
+      --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
+      --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
+      --eth-rpc-url=${ETH_RPC_URL} \
+      --operator-id ${OPERATOR_ID} \
+      --config /app/config.yaml
    ```
    
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
@@ -79,8 +109,11 @@ GLOBAL OPTIONS:
    * Update the config.yaml with your provided configuration variables. Remember to update the **eth_rpc_url** and **node_task_server_host_and_port_to_broadcast**.
    * Then, execute the binary with your configuration:
       ```sh
+      export PRIVATE_KEY=your_private_key
+      export OPERATOR_ID=your_operator_id
+      export CONFIG_PATH=your_path_to_config_file
       ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --ecdsa-private-key ${PRIVATE_KEY} --operator-id ${OPERATOR_ID}
       ```
-   * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY with the appropriate values for your setup.
+   * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY, and OPERATOR_ID with the appropriate values for your setup.
    
    
