@@ -71,6 +71,8 @@ GLOBAL OPTIONS:
       --config /app/config.yaml
 
     ```
+   Note: If you're using Windows, adapt these commands for the Command Prompt (`set` command) or PowerShell (`$env:` prefix).
+      
       * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh
       export ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH="/path/to/your/keystore/file.json"
@@ -92,6 +94,7 @@ GLOBAL OPTIONS:
       --operator-id ${OPERATOR_ID} \
       --config /app/config.yaml
    ```
+   Note: If you're using Windows, adapt these commands for the Command Prompt (`set` command) or PowerShell (`$env:` prefix).
    
    * To view additional configuration options: `docker run ghcr.io/aethosnetwork/operator:latest --help`
 
