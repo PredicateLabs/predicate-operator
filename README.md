@@ -10,6 +10,8 @@ Testnet Phase Two is underway on Holesky
 ## Prerequisites
 * **Expose 9010 port:** Your operator will expose this port to enable inbound tasks. 
 * **Expose 9090 port:** Your operator will expose this port to enable metrics collection.
+* **Whitelist The address `18.118.236.196`:** Your operator will recieve requests to scrape metrics from this IP
+* **Whitelist The address `holesky.task.aethos.network`:** Your operator will recieve and respond to tasks on this IP
 * **Registered with Eigenlayer on Holesky** Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 * **Holesky node (full/archive):** You can point to your local instance or to an RPC provider.
 * **Enabled operator:** Aethos testnet is permissioned. Your operator address must be on the allowlist on our Service Manger. Please reach out to us if this has not already been complete.
