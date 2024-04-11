@@ -12,14 +12,13 @@ Testnet Phase Two is underway on Holesky
 * **Holesky node (full/archive):** You can point to your local instance or to an RPC provider.
 * **Enabled operator:** Aethos testnet is permissioned. Your operator address must be on the allowlist on our Service Manger. Please reach out to us if this has not already been complete.
 
-
-## Configuration
-The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
-If both methods are used, CLI arguments will take precedence over configurations specified in the config.yaml file.
-
 ## Networking
 * **Expose 9010 port for `holesky.task.aethos.network` :** exposing this port enables inbound tasks
 * **Expose 9090 port for `18.118.236.196`:** exposing this port enable metrics collection
+  
+## Configuration
+The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
+If both methods are used, CLI arguments will take precedence over configurations specified in the config.yaml file.
 
 ### Configuration Preferences:
 * Docker: It's preferred to use CLI arguments.
