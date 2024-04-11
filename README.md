@@ -1,16 +1,15 @@
-# For Aethos Operators
-Welcome to the Aethos Operator documentation. This guide provides comprehensive instructions on setting up and running
-the Aethos Operator using either Docker or a binary executable
+# Welcome to Aethos
+This is the Aethos Operator documentation - a guide which provides instructions on setting up and running the Aethos Operator using either Docker or a binary executable.
 
-## Testnet
-Testnet Phase Two is underway on Holesky 
+## We're live on Testnet
+Aethos Testnet Phase Two is underway on Holesky 
 - Service Manager Proxy [```0xdE93E0dA148e1919bb7f33cd8847F96e45791210```](https://holesky.etherscan.io/address/0xdE93E0dA148e1919bb7f33cd8847F96e45791210)
 - Aggregator is running on ```holesky.task.aethos.network:50051```
 
-## Prerequisites
-* **Registered with Eigenlayer on Holesky** Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
+## Prerequisites to Running an Operator
+* **Must be registered with Eigenlayer on Holesky** Account registered with Eigenlayer as an operator (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 * **Holesky node (full/archive):** You can point to your local instance or to an RPC provider.
-* **Enabled operator:** Aethos testnet is permissioned. Your operator address must be on the allowlist on our Service Manger. Please reach out to us if this has not already been complete.
+* **Enabled operator:** Aethos testnet is permissioned. Your operator address must be on the allowlist on our ServiceManger contract. Please reach out to us if this has not already been complete.
 
 ## Networking
 * **Expose 9010 port for `holesky.task.aethos.network` :** exposing this port enables inbound tasks
