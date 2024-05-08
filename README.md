@@ -11,6 +11,11 @@ Aethos Testnet Phase Two is underway on Holesky
 * **Holesky node (full/archive):** You can point to your local instance or to an RPC provider.
 * **Enabled operator:** Aethos testnet is permissioned. Your operator address must be on the allowlist on our ServiceManger contract. Please reach out to us if this has not already been complete.
 
+## Hardware Requirements
+* **16GB RAM** 
+* **1TB Fast SSD**
+* **4 cores CPU**
+
 ## Networking
 * **Expose 9010 port for `18.118.236.196` :** exposing this port enables inbound tasks
 * **Expose 9090 port for `18.118.236.196`:** exposing this port enable metrics collection
