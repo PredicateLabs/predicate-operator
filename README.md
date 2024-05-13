@@ -35,7 +35,7 @@ Preferences
 ## Docker Setup
 ### Steps
 1. Authenticate with GitHub Container Registry:
-   * Setup a GitHub Personal Access Token (PAT) with the packages permissions (refer to [this article](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for more details) **NOTE**: must be a classic token with all packages and workflow permissions enabled.
+   * Setup a GitHub Personal Access Token (PAT) with the packages permissions (refer to [this article](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry) for more details)   **NOTE**: must be a classic token with all packages and workflow permissions enabled.
    * Export your PAT as an environment variable: `export CR_PAT=YOUR_TOKEN`.
    * Log in to the container registry: `echo $CR_PAT | docker login ghcr.io -u GITHUB_USERNAME --password-stdin`
 2. Pull the Docker Image:
@@ -72,7 +72,7 @@ Preferences
    export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
    export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
 
-   docker run --network host ghcr.io/aethosnetwork/operator:latest \
+   docker run --network host ghcr.io/aethosnetwork/operator:latest start \
    --aethos-signing-private-key ${AETHOS_SIGNING_PRIVATE_KEY} \
    --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
    --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
@@ -93,7 +93,7 @@ Preferences
 
    docker run --network host \
    -v "${AETHOS_SIGNING_PRIVATE_KEY_STORE_PATH}:/app/operatorkey.json" \
-   ghcr.io/aethosnetwork/operator:latest \
+   ghcr.io/aethosnetwork/operator:latest start \
    --aethos-signing-private-key-store-path /app/operatorkey.json \
    --aethos-signing-private-key-password ${AETHOS_SIGNING_PRIVATE_KEY_PASSWORD} \
    --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
