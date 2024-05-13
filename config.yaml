@@ -6,6 +6,8 @@ eth_rpc_url: <holesky_rpc_url>
 
 # avs service manager proxy address (holesky testnet)
 avs_service_manager_address: 0xdE93E0dA148e1919bb7f33cd8847F96e45791210
+# avs directory address (eigenlayer holesky testnet)
+avs_directory_address: 0x055733000064333CaDDbC92763c58BF0192fFeBf
 
 # ecdsa private key store path and password
 ecdsa_private_key_store_path: ~/.eigenlayer/aggregator/test.ecdsa.key.json
@@ -23,5 +25,8 @@ node_task_server_host_and_port_to_broadcast: <your_public_ip_address>:9010
 # address which the aggregator listens on for operator signed messages
 aggregator_server_ip_port_address: holesky.task.aethos.network:50051
 
-# operator id (your operator public address)
-operator_id: operator-xyz
+# db path
+db_path: /app/data/
+
+# enable log colors
+enable_log_color: true
