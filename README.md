@@ -42,9 +42,9 @@ Preferences
    * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
 3. Register with Aethos AVS:
    ```sh 
-   export AETHOS_SIGNING_ADDRESS=<signing_address>
-   export REGISTRATION_PRIVATE_KEY=<private_key>
-   export ETH_RPC_URL=<eth_rpc_url>
+   export AETHOS_SIGNING_ADDRESS="aethos_avs_signing_address"
+   export REGISTRATION_PRIVATE_KEY="eigenlayer_registered_operator_private_key"
+   export ETH_RPC_URL="eth_rpc_url"
 
    docker run ghcr.io/aethosnetwork/operator:latest register --config=/app/config.yaml --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --registration-private-key=${REGISTRATION_PRIVATE_KEY} --eth-rpc-url=${ETH_RPC_URL}
    ```
@@ -71,12 +71,13 @@ Preferences
    * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh
       export ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH="/path/to/your/keystore/file.json"
-      export ECDSA_KEYSTORE_PASSWORD="your_ecsda_keystore_password"
+      export ECDSA_KEYSTORE_PASSWORD="your_signing_key_ecsda_keystore_password"
       export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="your_operator_ip_addr_and_tasks_port"
       export ETH_RPC_URL="your_eth_rpc_url"
       export OPERATOR_ID="your_operator_id"
       export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
       export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
+   
       docker run --network host \
       -v "${ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH}:/app/operatorkeys.json" \
       ghcr.io/aethosnetwork/operator:latest \
@@ -104,9 +105,9 @@ Preferences
    * Execute: `./operator-<RELEASE_VERSION>-<ARCH> --help`, replacing ARCH with your actual architecture and <RELEASE_VERSION> with latest release.
 4. Register with Aethos AVS:
    ```sh 
-   export AETHOS_SIGNING_ADDRESS=<signing_address>
-   export REGISTRATION_PRIVATE_KEY=<private_key>
-   export ETH_RPC_URL=<eth_rpc_url>
+   export AETHOS_SIGNING_ADDRESS="aethos_avs_signing_address"
+   export REGISTRATION_PRIVATE_KEY="eigenlayer_registered_operator_private_key"
+   export ETH_RPC_URL="eth_rpc_url"
 
    docker run ghcr.io/aethosnetwork/operator:latest register --config=/app/config.yaml --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --registration-private-key=${REGISTRATION_PRIVATE_KEY} --eth-rpc-url=${ETH_RPC_URL}
    ```
@@ -118,6 +119,7 @@ Preferences
       export PRIVATE_KEY=your_private_key
       export OPERATOR_ID=your_operator_id
       export CONFIG_PATH=your_path_to_config_file
+     
       ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --ecdsa-private-key ${PRIVATE_KEY}
       ```
    * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY, and OPERATOR_ID with the appropriate values for your setup.
