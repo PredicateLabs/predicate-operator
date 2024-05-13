@@ -121,8 +121,6 @@ Preferences
    export AETHOS_SIGNING_ADDRESS="aethos_avs_signing_address"
    export REGISTRATION_PRIVATE_KEY="eigenlayer_registered_operator_private_key"
    export ETH_RPC_URL="eth_rpc_url"
-   export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
-   export AVS_DIRECTORY_ADDRESS="0x055733000064333CaDDbC92763c58BF0192fFeBf"
 
    ./operator-<RELEASE_VERSION>-<ARCH> register --config=/app/config.yaml --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --registration-private-key=${REGISTRATION_PRIVATE_KEY} --eth-rpc-url=${ETH_RPC_URL}
    ```
