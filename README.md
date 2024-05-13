@@ -25,7 +25,7 @@ Aethos testnet phase three is live on Holesky!
 
 ### Register with Aethos
 ``` bash 
-operator register --config=/app/config.yaml --alias-private-key=$ALIAS_PUBLIC_KEY --registration-private-key=$REGISTRATION_PRIVATE_KEY --eth-rpc-url=$ETH_RPC_URL
+operator --config=/app/config.yaml --aethos-signing-address=$AETHOS_SIGNING_ADDRESS --registration-private-key=$REGISTRATION_PRIVATE_KEY --eth-rpc-url=$ETH_RPC_URL register
 ```
 ### Configuration
 The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
