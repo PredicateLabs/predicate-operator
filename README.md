@@ -42,18 +42,33 @@ Preferences
    * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
 3. Register with Aethos AVS:
    ```sh 
-   export AETHOS_SIGNING_ADDRESS="aethos_avs_signing_address"
-   export REGISTRATION_PRIVATE_KEY="eigenlayer_registered_operator_private_key"
-   export ETH_RPC_URL="eth_rpc_url"
+   export AETHOS_SIGNING_ADDRESS="<your_aethos_avs_signing_address>"
+   export REGISTRATION_PRIVATE_KEY="<your_eigenlayer_registered_operator_private_key>"
+   export ETH_RPC_URL="<your_eth_rpc_url>"
+   export AVS_DIRECTORY_ADDRESS="0x055733000064333CaDDbC92763c58BF0192fFeBf"
+   export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
 
-   docker run ghcr.io/aethosnetwork/operator:latest register --config=/app/config.yaml --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --registration-private-key=${REGISTRATION_PRIVATE_KEY} --eth-rpc-url=${ETH_RPC_URL}
+   docker run ghcr.io/aethosnetwork/operator:latest register --config=/app/config.yaml --registration-private-key=${REGISTRATION_PRIVATE_KEY} --avs-directory-address=${AVS_DIRECTORY_ADDRESS} --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} --eth-rpc-url=${ETH_RPC_URL}
+   ```
+
+   * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
+   ```sh
+      export REGISTRATION_PRIVATE_KEY_STORE_PATH="/path/to/your/keystore/ecdsa_file.json"
+      export REGISTRATION_PRIVATE_KEY_PASSWORD="<your_registration_key_keystore_password>"
+      export ETH_RPC_URL="<your_eth_rpc_url>"
+      export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
+      export AVS_DIRECTORY_ADDRESS="0x055733000064333CaDDbC92763c58BF0192fFeBf"
+
+   
+      docker run --network host -v "${REGISTRATION_PRIVATE_KEY_STORE_PATH}:/app/operatorkey.json"
+      ghcr.io/aethosnetwork/operator:latest register --config=/app/config.yaml --registration-private-key-store-path ${REGISTRATION_PRIVATE_KEY_STORE_PATH} --registration-private-key-password ${REGISTRATION_PRIVATE_KEY_PASSWORD} --avs-directory-address=${AVS_DIRECTORY_ADDRESS} --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} --eth-rpc-url=${ETH_RPC_URL}
    ```
 4. Run the Operator:
    * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-      export AETHOS_SIGNING_PRIVATE_KEY="your_private_key"
-      export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="your_operator_ip_addr_and_tasks_port"
-      export ETH_RPC_URL="your_eth_rpc_url"
+      export AETHOS_SIGNING_PRIVATE_KEY="<your_private_key>"
+      export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="<your_operator_ip_addr_and_tasks_port>"
+      export ETH_RPC_URL="<your_eth_rpc_url>"
       export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
       export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
    
@@ -71,10 +86,9 @@ Preferences
    * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh
       export AETHOS_SIGNING_PRIVATE_KEY_STORE_PATH="/path/to/your/keystore/ecdsa_file.json"
-      export AETHOS_SIGNING_PRIVATE_KEY_PASSWORD="your_signing_key_keystore_password"
-      export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="your_operator_ip_addr_and_tasks_port"
-      export ETH_RPC_URL="your_eth_rpc_url"
-      export OPERATOR_ID="your_operator_id"
+      export AETHOS_SIGNING_PRIVATE_KEY_PASSWORD="<your_signing_key_keystore_password>"
+      export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="<your_operator_ip_addr_and_tasks_port>"
+      export ETH_RPC_URL="<your_eth_rpc_url>"
       export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
       export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
    
