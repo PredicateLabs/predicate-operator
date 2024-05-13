@@ -136,5 +136,5 @@ Preferences
      
       ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --aethos-signing-private-key ${AETHOS_SIGNING_PRIVATE_KEY}
       ```
-   * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY, and OPERATOR_ID with the appropriate values for your setup.
+   * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY with the appropriate values for your setup.
 ---
