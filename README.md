@@ -23,10 +23,6 @@ Aethos testnet phase three is live on Holesky!
 * **`18.118.236.196`:** exposing this port enables inbound tasks
 * **`18.118.236.196`:** exposing this port enable metrics collection
 
-### Register with Aethos
-``` bash 
-operator --config=/app/config.yaml --aethos-signing-address=$AETHOS_SIGNING_ADDRESS --registration-private-key=$REGISTRATION_PRIVATE_KEY --eth-rpc-url=$ETH_RPC_URL register
-```
 ### Configuration
 The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
 If both methods are used, CLI arguments will take precedence over configurations specified in the config.yaml file.
@@ -44,7 +40,11 @@ Preferences
    * Log in to the container registry: `echo $CR_PAT | docker login ghcr.io -u GITHUB_USERNAME --password-stdin`
 2. Pull the Docker Image:
    * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
-3. Run the Operator:
+3. Register with Aethos AVS:
+   ``` bash 
+   operator --config=/app/config.yaml --aethos-signing-address=$AETHOS_SIGNING_ADDRESS --registration-private-key=$REGISTRATION_PRIVATE_KEY --eth-rpc-url=$ETH_RPC_URL register
+   ```
+4. Run the Operator:
    * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
       export PRIVATE_KEY="your_private_key"
@@ -98,7 +98,11 @@ Preferences
    * This contains binaries for supported architectures.
 3. Review Help Documentation:
    * Execute: `./operator-<RELEASE_VERSION>-<ARCH> --help`, replacing ARCH with your actual architecture and <RELEASE_VERSION> with latest release.
-4. Run the Operator:
+4. Register with Aethos AVS:
+   ``` bash 
+   operator --config=/app/config.yaml --aethos-signing-address=$AETHOS_SIGNING_ADDRESS --registration-private-key=$REGISTRATION_PRIVATE_KEY --eth-rpc-url=$ETH_RPC_URL register
+   ```
+5. Run the Operator:
    * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
    * Update the config.yaml with your provided configuration variables. Remember to update the **eth_rpc_url** and **node_task_server_host_and_port_to_broadcast**.
    * Then, execute the binary with your configuration:
