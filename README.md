@@ -51,14 +51,14 @@ Preferences
 4. Run the Operator:
    * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
-      export PRIVATE_KEY="your_private_key"
+      export AETHOS_SIGNING_PRIVATE_KEY="your_private_key"
       export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="your_operator_ip_addr_and_tasks_port"
       export ETH_RPC_URL="your_eth_rpc_url"
-      export OPERATOR_ID="your_operator_id"
       export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
       export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
+   
       docker run --network host ghcr.io/aethosnetwork/operator:latest \
-      --ecdsa-private-key ${PRIVATE_KEY} \
+      --aethos-signing-private-key ${AETHOS_SIGNING_PRIVATE_KEY} \
       --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
       --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
       --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
@@ -70,8 +70,8 @@ Preferences
 
    * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh
-      export ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH="/path/to/your/keystore/file.json"
-      export ECDSA_KEYSTORE_PASSWORD="your_signing_key_ecsda_keystore_password"
+      export AETHOS_SIGNING_PRIVATE_KEY_STORE_PATH="/path/to/your/keystore/ecdsa_file.json"
+      export AETHOS_SIGNING_PRIVATE_KEY_PASSWORD="your_signing_key_keystore_password"
       export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="your_operator_ip_addr_and_tasks_port"
       export ETH_RPC_URL="your_eth_rpc_url"
       export OPERATOR_ID="your_operator_id"
@@ -79,10 +79,10 @@ Preferences
       export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
    
       docker run --network host \
-      -v "${ECDSA_KEYSTORE_FILE_ABSOLUTE_PATH}:/app/operatorkeys.json" \
+      -v "${AETHOS_SIGNING_PRIVATE_KEY_STORE_PATH}:/app/operatorkey.json" \
       ghcr.io/aethosnetwork/operator:latest \
-      --ecdsa-private-key-store-path /app/operatorkeys.json \
-      --ecdsa-private-key-password ${ECDSA_KEYSTORE_PASSWORD} \
+      --aethos-signing-private-key-store-path /app/operatorkey.json \
+      --aethos-signing-private-key-password ${AETHOS_SIGNING_PRIVATE_KEY_PASSWORD} \
       --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
       --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
       --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
@@ -109,18 +109,17 @@ Preferences
    export REGISTRATION_PRIVATE_KEY="eigenlayer_registered_operator_private_key"
    export ETH_RPC_URL="eth_rpc_url"
 
-   docker run ghcr.io/aethosnetwork/operator:latest register --config=/app/config.yaml --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --registration-private-key=${REGISTRATION_PRIVATE_KEY} --eth-rpc-url=${ETH_RPC_URL}
+   ./operator-<RELEASE_VERSION>-<ARCH> register --config=/app/config.yaml --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --registration-private-key=${REGISTRATION_PRIVATE_KEY} --eth-rpc-url=${ETH_RPC_URL}
    ```
 5. Run the Operator:
    * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
    * Update the config.yaml with your provided configuration variables. Remember to update the **eth_rpc_url** and **node_task_server_host_and_port_to_broadcast**.
    * Then, execute the binary with your configuration:
       ```sh
-      export PRIVATE_KEY=your_private_key
-      export OPERATOR_ID=your_operator_id
+      export AETHOS_SIGNING_PRIVATE_KEY=your_aethos_signing_private_key
       export CONFIG_PATH=your_path_to_config_file
      
-      ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --ecdsa-private-key ${PRIVATE_KEY}
+      ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --aethos-signing-private-key ${AETHOS_SIGNING_PRIVATE_KEY}
       ```
    * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY, and OPERATOR_ID with the appropriate values for your setup.
 ---
