@@ -20,8 +20,8 @@ Aethos testnet phase three is live on Holesky!
 * **Holesky node (full/archive):** You can point to your local instance or to an RPC provider.
 
 ### Expose the following IP/Ports
-* **`18.118.236.196`:** exposing this port enables inbound tasks
-* **`18.118.236.196`:** exposing this port enable metrics collection
+* **`18.118.236.196:9010`:** exposing this port enables inbound tasks
+* **`18.118.236.196:9090`:** exposing this port enable metrics collection
 
 ### Configuration
 The Aethos Operator supports configuration via command-line interface (CLI) arguments or a config.yaml file.
