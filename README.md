@@ -59,17 +59,18 @@ Preferences
 
    * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh
+   export AETHOS_SIGNING_ADDRESS="<your_aethos_avs_signing_address>"
    export REGISTRATION_PRIVATE_KEY_STORE_PATH="/path/to/your/keystore/ecdsa_file.json"
    export REGISTRATION_PRIVATE_KEY_PASSWORD="<your_registration_key_keystore_password>"
    export ETH_RPC_URL="<your_eth_rpc_url>"
-   export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
    export AVS_DIRECTORY_ADDRESS="0x055733000064333CaDDbC92763c58BF0192fFeBf"
+   export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
 
 
    docker run --network host -v "${REGISTRATION_PRIVATE_KEY_STORE_PATH}:/app/operatorkey.json" \
      ghcr.io/aethosnetwork/operator:latest register \
      --config=/app/config.yaml \
-     --registration-private-key-store-path ${REGISTRATION_PRIVATE_KEY_STORE_PATH} \
+     --registration-private-key-store-path /app/operatorkey.json \
      --registration-private-key-password ${REGISTRATION_PRIVATE_KEY_PASSWORD} \
      --avs-directory-address=${AVS_DIRECTORY_ADDRESS} \
      --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} \
