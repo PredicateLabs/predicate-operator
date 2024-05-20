@@ -48,7 +48,13 @@ Preferences
    export AVS_DIRECTORY_ADDRESS="0x055733000064333CaDDbC92763c58BF0192fFeBf"
    export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
 
-   docker run ghcr.io/aethosnetwork/operator:latest register --config=/app/config.yaml --registration-private-key=${REGISTRATION_PRIVATE_KEY} --avs-directory-address=${AVS_DIRECTORY_ADDRESS} --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} --eth-rpc-url=${ETH_RPC_URL}
+   docker run ghcr.io/aethosnetwork/operator:latest register \
+     --config=/app/config.yaml \
+     --registration-private-key=${REGISTRATION_PRIVATE_KEY} \
+     --avs-directory-address=${AVS_DIRECTORY_ADDRESS} \
+     --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} \
+     --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
+     --eth-rpc-url=${ETH_RPC_URL}
    ```
 
    * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
@@ -60,8 +66,15 @@ Preferences
    export AVS_DIRECTORY_ADDRESS="0x055733000064333CaDDbC92763c58BF0192fFeBf"
 
 
-   docker run --network host -v "${REGISTRATION_PRIVATE_KEY_STORE_PATH}:/app/operatorkey.json"
-   ghcr.io/aethosnetwork/operator:latest register --config=/app/config.yaml --registration-private-key-store-path ${REGISTRATION_PRIVATE_KEY_STORE_PATH} --registration-private-key-password ${REGISTRATION_PRIVATE_KEY_PASSWORD} --avs-directory-address=${AVS_DIRECTORY_ADDRESS} --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} --eth-rpc-url=${ETH_RPC_URL}
+   docker run --network host -v "${REGISTRATION_PRIVATE_KEY_STORE_PATH}:/app/operatorkey.json" \
+     ghcr.io/aethosnetwork/operator:latest register \
+     --config=/app/config.yaml \
+     --registration-private-key-store-path ${REGISTRATION_PRIVATE_KEY_STORE_PATH} \
+     --registration-private-key-password ${REGISTRATION_PRIVATE_KEY_PASSWORD} \
+     --avs-directory-address=${AVS_DIRECTORY_ADDRESS} \
+     --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} \
+     --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
+     --eth-rpc-url=${ETH_RPC_URL}
    ```
 4. Run the Operator:
    * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
@@ -73,13 +86,14 @@ Preferences
    export AVS_SERVICE_MANAGER_ADDRESS="0xdE93E0dA148e1919bb7f33cd8847F96e45791210"
    export DB_PATH="<path_to_mounted_volume>"
 
-   docker run --network host -v "${DB_PATH}:/app/data" ghcr.io/aethosnetwork/operator:latest start \
-   --aethos-signing-private-key ${AETHOS_SIGNING_PRIVATE_KEY} \
-   --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
-   --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
-   --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
-   --eth-rpc-url=${ETH_RPC_URL} \
-   --config /app/config.yaml
+   docker run --network host -v "${DB_PATH}:/app/data" \
+     ghcr.io/aethosnetwork/operator:latest start \
+     --aethos-signing-private-key ${AETHOS_SIGNING_PRIVATE_KEY} \
+     --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
+     --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
+     --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
+     --eth-rpc-url=${ETH_RPC_URL} \
+     --config /app/config.yaml
     ```
    Note: If you're using Windows, adapt these commands for the Command Prompt (`set` command) or PowerShell (`$env:` prefix).
 
@@ -94,16 +108,16 @@ Preferences
    export DB_PATH="<path_to_mounted_volume>"
 
    docker run --network host \
-   -v "${AETHOS_SIGNING_PRIVATE_KEY_STORE_PATH}:/app/operatorkey.json" \
-   -v "${DB_PATH}:/app/data" \
-   ghcr.io/aethosnetwork/operator:latest start \
-   --aethos-signing-private-key-store-path /app/operatorkey.json \
-   --aethos-signing-private-key-password ${AETHOS_SIGNING_PRIVATE_KEY_PASSWORD} \
-   --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
-   --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
-   --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
-   --eth-rpc-url=${ETH_RPC_URL} \
-   --config /app/config.yaml
+     -v "${AETHOS_SIGNING_PRIVATE_KEY_STORE_PATH}:/app/operatorkey.json" \
+     -v "${DB_PATH}:/app/data" \
+     ghcr.io/aethosnetwork/operator:latest start \
+     --aethos-signing-private-key-store-path /app/operatorkey.json \
+     --aethos-signing-private-key-password ${AETHOS_SIGNING_PRIVATE_KEY_PASSWORD} \
+     --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
+     --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
+     --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
+     --eth-rpc-url=${ETH_RPC_URL} \
+     --config /app/config.yaml
    ```
    Note: If you're using Windows, adapt these commands for the Command Prompt (`set` command) or PowerShell (`$env:` prefix).
 
@@ -125,7 +139,11 @@ Preferences
    export REGISTRATION_PRIVATE_KEY="eigenlayer_registered_operator_private_key"
    export ETH_RPC_URL="eth_rpc_url"
 
-   ./operator-<RELEASE_VERSION>-<ARCH> register --config=/app/config.yaml --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} --registration-private-key=${REGISTRATION_PRIVATE_KEY} --eth-rpc-url=${ETH_RPC_URL}
+   ./operator-<RELEASE_VERSION>-<ARCH> register \
+     --config=/app/config.yaml \
+     --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} \
+     --registration-private-key=${REGISTRATION_PRIVATE_KEY} \
+     --eth-rpc-url=${ETH_RPC_URL}
    ```
 5. Run the Operator:
    * ```config.yaml``` has pre-set variables that are used for connecting to our aggregator
