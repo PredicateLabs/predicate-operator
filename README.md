@@ -15,7 +15,7 @@ Aethos testnet phase three is live on Holesky!
 
 ### Prerequisites
 * **Registered with Eigenlayer on Holesky** Registration key registered with Eigenlayer (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
-* **Defined Aethos AVS Signer Key** Signer Key used for signing tasks (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/key-management/intro#eigenlayer)).
+* **Defined Aethos AVS Signer Key** ECDSA Signer Key used for signing tasks (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/key-management/intro#eigenlayer)).
 * **Aethos team enabled registration key:** Aethos testnet is permissioned. Your registration key must be on the allowlist of the Aethos ServiceManger contract. Please reach out to us if this has not already been complete.
 * **Holesky node (full/archive):** You can point to your local instance or to an RPC provider.
 
@@ -155,7 +155,7 @@ Preferences
       export CONFIG_PATH=your_path_to_config_file
     
      
-      ./operator-<RELEASE_VERSION>-<ARCH> --config ${CONFIG_PATH} --aethos-signing-private-key ${AETHOS_SIGNING_PRIVATE_KEY}
+      ./operator-<RELEASE_VERSION>-<ARCH> start --config ${CONFIG_PATH} --aethos-signing-private-key ${AETHOS_SIGNING_PRIVATE_KEY}
       ```
    * Replace ARCH, RELEASE_VERSION, CONFIG_PATH, and PRIVATE_KEY with the appropriate values for your setup.
 ---
