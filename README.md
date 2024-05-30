@@ -27,7 +27,7 @@ These prerequisites should be met for the correct chain you are joining
 
 * **Registered with Eigenlayer** Registration key registered with Eigenlayer (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/operator-installation)).
 * **Defined Aethos AVS Signer Key** ECDSA Signer Key used for signing tasks (see [here](https://docs.eigenlayer.xyz/eigenlayer/operator-guides/key-management/intro#eigenlayer)).
-* **Aethos team enabled registration key:** Aethos testnet is permissioned. Your registration key must be on the allowlist of the Aethos ServiceManger contract. Please reach out to us if this has not already been complete.
+* **Aethos team enabled registration key:** Aethos is currently permissioned. Your registration key must be on the allowlist of the Aethos ServiceManger contract. Please reach out to us if this has not already been complete.
 * **Ethereum node (full/archive):** You can point to your local instance or to an RPC provider.
 
 ## Ports 
