@@ -11,7 +11,7 @@ Aethos testnet phase three is live on Holesky!
 
 ## Aethos Mainnet
 Aethos alpha mainnet is live on Ethereum!
-- Service Manager Proxy [```0x07E26BF8060e33fA3771d88128b75493750515c1```](https://holesky.etherscan.io/address/0xdE93E0dA148e1919bb7f33cd8847F96e45791210)
+- Service Manager Proxy [```0x07E26BF8060e33fA3771d88128b75493750515c1```](https://etherscan.io/address/0x07E26BF8060e33fA3771d88128b75493750515c1)
 - Aggregator service is running on ```task.aethos.network:50051```
 - Eigenlayer Directory Address ```0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF```
 
