@@ -5,9 +5,9 @@ environment: production
 eth_rpc_url: <eth_rpc_url>
 
 # avs service manager proxy address 
-avs_service_manager_address: <aethos_avs_servicemanager_address>[see readme]
+avs_service_manager_address: 0x07E26BF8060e33fA3771d88128b75493750515c1
 # avs directory address (eigenlayer holesky testnet)
-avs_directory_address: <eigenlayer_avs_directory_address>[see readme]
+avs_directory_address: 0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF
 
 # registration private key store path and password
 registration_private_key_store_path: <path_to_private_key_store>
@@ -28,7 +28,7 @@ node_task_server_host_and_port: 0.0.0.0:9010
 node_task_server_host_and_port_to_broadcast: <your_public_ip_address>:9010
 
 # address which the aggregator listens on for operator signed messages
-aggregator_server_ip_port_address: <aggregator_dns_name>[see readme]
+aggregator_server_ip_port_address: task.aethos.network:50051
 
 # db path
 db_path: /app/data/
