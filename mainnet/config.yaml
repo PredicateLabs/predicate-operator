@@ -6,7 +6,7 @@ eth_rpc_url: <eth_rpc_url>
 
 # avs service manager proxy address 
 avs_service_manager_address: 0x07E26BF8060e33fA3771d88128b75493750515c1
-# avs directory address (eigenlayer holesky testnet)
+# avs directory address (eigenlayer ethereum mainnet)
 avs_directory_address: 0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF
 
 # registration private key store path and password
