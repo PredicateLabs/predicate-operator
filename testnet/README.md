@@ -1,4 +1,4 @@
-# Aethos Mainnet Node Operation
+# Aethos Testnet Node Operation
 This guide provides instructions on setting up and running the Aethos Operator using either Docker or a binary executable.
 
 # Run an Aethos Operator
@@ -133,7 +133,7 @@ Preferences
 1. **Determine your system architecture**
    - Example: `darwin/arm64` for macOS on ARM, `linux/amd64` for Linux on AMD64.
 
-2. **Navigate to the 'v0' Directory**
+2. **Navigate to the '../binaries' Directory**
    - This directory contains binaries for supported architectures.
 
 3. **Review Help Documentation**
