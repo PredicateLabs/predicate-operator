@@ -1,5 +1,5 @@
 # Aethos Testnet Node Operation
-This guide provides instructions on setting up and running the Aethos Operator using either Docker or a binary executable. Current version for testnet is `0.2.5` and is marked as `v0.2.5-mainnet` release
+This guide provides instructions on setting up and running the Aethos Operator using either Docker or a binary executable. Current version for testnet is `0.2.6` and is marked as `v0.2.6-mainnet` release
 
 # Run an Aethos Operator
 
