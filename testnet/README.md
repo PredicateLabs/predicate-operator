@@ -42,6 +42,7 @@ Preferences
 2. **Pull the Docker Image:**
    * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
 3. **Register with Aethos AVS:**
+   We will register your operator to the address of the signing key you created for aethos.
    ```sh 
    export AETHOS_SIGNING_ADDRESS="<your_aethos_avs_signing_address>"
    export REGISTRATION_PRIVATE_KEY="<your_eigenlayer_registered_operator_private_key>"
@@ -143,6 +144,7 @@ Preferences
      ```
 
 4. **Register with Aethos AVS**
+   We will register your operator to the address of the signing key you created for aethos.
    - Register by pasting private key string:
      ```sh
      export AETHOS_SIGNING_ADDRESS="aethos_avs_signing_address"
