@@ -1,5 +1,5 @@
 # Aethos Mainnet Node Operation
-This guide provides instructions on setting up and running the Aethos Operator using either Docker or a binary executable.
+This guide provides instructions on setting up and running the Aethos Operator using either Docker or a binary executable. Current version for mainnet is `0.2.5` and is marked as `v0.2.5-mainnet` release
 
 # Run an Aethos Operator
 
@@ -42,6 +42,7 @@ Preferences
 2. **Pull the Docker Image:**
    * Execute: `docker pull ghcr.io/aethosnetwork/operator:latest`
 3. **Register with Aethos AVS:**
+   We will register your operator to the address of the signing key you created for aethos. Note: this should be a different key from your registration key. 
    ```sh 
    export AETHOS_SIGNING_ADDRESS="<your_aethos_avs_signing_address>"
    export REGISTRATION_PRIVATE_KEY="<your_eigenlayer_registered_operator_private_key>"
@@ -84,7 +85,7 @@ Preferences
    export AETHOS_SIGNING_PRIVATE_KEY="<your_private_key>"
    export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="<your_operator_ip_addr_and_tasks_port>"
    export ETH_RPC_URL="<your_eth_rpc_url>"
-   export AGGREGATOR_SERVER_IP_PORT_ADDRESS="holesky.task.aethos.network:50051"
+   export AGGREGATOR_SERVER_IP_PORT_ADDRESS="task.aethos.network:50051"
    export AVS_SERVICE_MANAGER_ADDRESS="0x07E26BF8060e33fA3771d88128b75493750515c1"
    export DB_PATH="<path_to_mounted_volume>"
 
@@ -133,7 +134,7 @@ Preferences
 1. **Determine your system architecture**
    - Example: `darwin/arm64` for macOS on ARM, `linux/amd64` for Linux on AMD64.
 
-2. **Navigate to the 'v0' Directory**
+2. **Navigate to the '../binaries' Directory**
    - This directory contains binaries for supported architectures.
 
 3. **Review Help Documentation**
@@ -143,6 +144,7 @@ Preferences
      ```
 
 4. **Register with Aethos AVS**
+   We will register your operator to the address of the signing key you created for aethos. Note: this should be a different key from your registration key. 
    - Register by pasting private key string:
      ```sh
      export AETHOS_SIGNING_ADDRESS="aethos_avs_signing_address"
