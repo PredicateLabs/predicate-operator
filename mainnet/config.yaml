@@ -1,21 +1,11 @@
 # this sets the logger level 
 environment: production
 
-# ethereum node urls
-eth_rpc_url: <eth_rpc_url>
-
 # avs service manager proxy address 
 avs_service_manager_address: 0x07E26BF8060e33fA3771d88128b75493750515c1
 # avs directory address (eigenlayer ethereum mainnet)
 avs_directory_address: 0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF
 
-# registration private key store path and password
-registration_private_key_store_path: <path_to_private_key_store>
-registration_private_key_password: <password>
-
-# aethos signing private key store path and password
-aethos_signing_private_key_store_path: <path_to_private_key_store>
-aethos_signing_private_key_password: <password>
 
 # avs node spec compliance https://eigen.nethermind.io/docs/spec/intro
 node_eigen_api_server_host_and_port: 0.0.0.0:8080
@@ -23,9 +13,6 @@ eigen_metrics_ip_port_address: 0.0.0.0:9090
 
 # grpc server for communication in between operator and aggregator
 node_task_server_host_and_port: 0.0.0.0:9010
-
-# grpc server on which the operator receives tasks
-node_task_server_host_and_port_to_broadcast: <your_public_ip_address>:9010
 
 # address which the aggregator listens on for operator signed messages
 aggregator_server_ip_port_address: task.aethos.network:50051
@@ -35,3 +22,21 @@ db_path: /app/data/
 
 # enable log colors
 enable_log_color: true
+
+####### TODO: Operators please update below values for your node ##############
+
+# TODO: ECDSA Key for EigenLayer Operator Registration
+registration_private_key_store_path: <path_to_private_key_store>
+registration_private_key_password: <password>
+
+# TODO: ECDSA Key for Aethos Task Signing
+aethos_signing_private_key_store_path: <path_to_private_key_store>
+aethos_signing_private_key_password: <password>
+
+# TODO: Provide a working Ethereum RPC URL
+eth_rpc_url: <eth_rpc_url>
+
+# TODO: Provide IP and port to broadcast to Aethos for tasks
+# Note: Must route traffic to the node's NODE_TASK_SERVER_HOST_AND_PORT
+# Note: Ensure traffic from Aethos IP (3.19.97.70:9010/tcp) is whitelisted to pass health check
+node_task_server_host_and_port_to_broadcast: <your_public_ip_address>:9010
