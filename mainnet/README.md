@@ -46,7 +46,7 @@ Preferences
    ```sh 
    export AETHOS_SIGNING_ADDRESS="<your_aethos_avs_signing_address>"
    export REGISTRATION_PRIVATE_KEY="<your_eigenlayer_registered_operator_private_key>"
-   export ETH_RPC_URL="<your_eth_rpc_url>"
+   export ETH_RPC_URLS="<your_eth_rpc_urls>"
    export AVS_DIRECTORY_ADDRESS="0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF"
    export AVS_SERVICE_MANAGER_ADDRESS="0x07E26BF8060e33fA3771d88128b75493750515c1"
 
@@ -56,7 +56,7 @@ Preferences
      --avs-directory-address=${AVS_DIRECTORY_ADDRESS} \
      --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} \
      --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
-     --eth-rpc-url=${ETH_RPC_URL}
+     --eth-rpc-urls=${ETH_RPC_URLS}
    ```
 
    * If you are passing in the Eigenlayer-registered operator's private key via keystore file, use the following command template to run the operator, replacing placeholders with actual values:
@@ -64,7 +64,7 @@ Preferences
    export AETHOS_SIGNING_ADDRESS="<your_aethos_avs_signing_address>"
    export REGISTRATION_PRIVATE_KEY_STORE_PATH="/path/to/your/keystore/ecdsa_file.json"
    export REGISTRATION_PRIVATE_KEY_PASSWORD="<your_registration_key_keystore_password>"
-   export ETH_RPC_URL="<your_eth_rpc_url>"
+   export ETH_RPC_URLS="<your_eth_rpc_urls>"
    export AVS_DIRECTORY_ADDRESS="0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF"
    export AVS_SERVICE_MANAGER_ADDRESS="0x07E26BF8060e33fA3771d88128b75493750515c1"
 
@@ -77,14 +77,14 @@ Preferences
      --avs-directory-address=${AVS_DIRECTORY_ADDRESS} \
      --aethos-signing-address=${AETHOS_SIGNING_ADDRESS} \
      --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
-     --eth-rpc-url=${ETH_RPC_URL}
+     --eth-rpc-urls=${ETH_RPC_URLS}
    ```
 4. **Run the Operator:**
    * If you are passing in the Eigenlayer-registered operator's private key via CLI, use the following command template to run the operator, replacing placeholders with actual values:
    ```sh 
    export AETHOS_SIGNING_PRIVATE_KEY="<your_private_key>"
    export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="<your_operator_ip_addr_and_tasks_port>"
-   export ETH_RPC_URL="<your_eth_rpc_url>"
+   export ETH_RPC_URLS="<your_eth_rpc_urls>"
    export AGGREGATOR_SERVER_IP_PORT_ADDRESS="task.aethos.network:50051"
    export AVS_SERVICE_MANAGER_ADDRESS="0x07E26BF8060e33fA3771d88128b75493750515c1"
    export DB_PATH="<path_to_mounted_volume>"
@@ -95,7 +95,7 @@ Preferences
      --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
      --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
      --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
-     --eth-rpc-url=${ETH_RPC_URL} \
+     --eth-rpc-urls=${ETH_RPC_URLS} \
      --config /app/config.yaml
     ```
    Note: If you're using Windows, adapt these commands for the Command Prompt (`set` command) or PowerShell (`$env:` prefix).
@@ -105,7 +105,7 @@ Preferences
    export AETHOS_SIGNING_PRIVATE_KEY_STORE_PATH="/path/to/your/keystore/ecdsa_file.json"
    export AETHOS_SIGNING_PRIVATE_KEY_PASSWORD="<your_signing_key_keystore_password>"
    export NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST="<your_operator_ip_addr_and_tasks_port>"
-   export ETH_RPC_URL="<your_eth_rpc_url>"
+   export ETH_RPC_URLS="<your_eth_rpc_urls>"
    export AVS_SERVICE_MANAGER_ADDRESS="0x07E26BF8060e33fA3771d88128b75493750515c1"
    export AGGREGATOR_SERVER_IP_PORT_ADDRESS="task.aethos.network:50051"
    export DB_PATH="<path_to_mounted_volume>"
@@ -119,7 +119,7 @@ Preferences
      --aggregator-server-ip-port-address ${AGGREGATOR_SERVER_IP_PORT_ADDRESS} \
      --node-task-server-host-and-port-to-broadcast ${NODE_TASK_SERVER_HOST_AND_PORT_TO_BROADCAST} \
      --avs-service-manager-address=${AVS_SERVICE_MANAGER_ADDRESS} \
-     --eth-rpc-url=${ETH_RPC_URL} \
+     --eth-rpc-urls=${ETH_RPC_URLS} \
      --config /app/config.yaml
    ```
    Note: If you're using Windows, adapt these commands for the Command Prompt (`set` command) or PowerShell (`$env:` prefix).
@@ -149,19 +149,19 @@ Preferences
      ```sh
      export AETHOS_SIGNING_ADDRESS="aethos_avs_signing_address"
      export REGISTRATION_PRIVATE_KEY="eigenlayer_registered_operator_private_key"
-     export ETH_RPC_URL="eth_rpc_url"
+     export ETH_RPC_URLS="eth_rpc_urls"
      export CONFIG_PATH="your_path_to_config_file"
 
      ./operator-<RELEASE_VERSION>-<ARCH> register \
        --config ${CONFIG_PATH} \
        --aethos-signing-address ${AETHOS_SIGNING_ADDRESS} \
        --registration-private-key ${REGISTRATION_PRIVATE_KEY} \
-       --eth-rpc-url ${ETH_RPC_URL}
+       --eth-rpc-urls ${ETH_RPC_URLS}
      ```
    - for keystore files, use config.yaml
 
 5. **Run the Operator**
-   - Update the `config.yaml` file with your provided configuration variables. Remember to update the `eth_rpc_url`, `node_task_server_host_and_port_to_broadcast`, and `db_path` in the `config.yaml`.
+   - Update the `config.yaml` file with your provided configuration variables. Remember to update the `eth_rpc_urls`, `node_task_server_host_and_port_to_broadcast`, and `db_path` in the `config.yaml`.
 
    - Start via signing key string:
      ```sh
