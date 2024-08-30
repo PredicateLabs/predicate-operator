@@ -30,5 +30,5 @@ registration_private_key_password: <password>
 aethos_signing_private_key_store_path: <path_to_private_key_store>
 # Password to access the signing private key store
 aethos_signing_private_key_password: <password>
-# Comma separated list of Mainnet archive node URLs
-eth_rpc_urls: <https://rpc.abc.com,https://rpc.def.com>
+# Comma separated list of Mainnet RPC URLs e.g. [https://holesky.abc.io/v3/your-api-key, https://holesky.def.io/v3/your-api-key]
+eth_rpc_urls: []
