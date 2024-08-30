@@ -1,20 +1,8 @@
 environment: production
-# Comma separated list of Ethereum archive node URLs
-eth_rpc_urls: <eth_rpc_urls>
 # Aethos ServiceManager Proxy Contract
 service_manager_contract: 0x07E26BF8060e33fA3771d88128b75493750515c1
 # Eigenlayer AVS Directory Contract (Ethereum Mainnet)
 eigen_avs_directory_contract: 0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF
-# Registration private key store path
-registration_private_key_store_path: <path_to_private_key_store>
-# Password to access the private key store
-registration_private_key_password: <password>
-# Aethos signing private key store path
-aethos_signing_private_key_store_path: <path_to_private_key_store>
-# Password to access the signing private key store
-aethos_signing_private_key_password: <password>
-# GRPC server on which the operator listens for messages from the middleware
-public_task_server_endpoint: <your_public_ip_address>:9010
 # Internal GRPC server the public server forwards messages to
 internal_task_server_endpoint: 0.0.0.0:9010
 # Middleware DNS and port
@@ -27,3 +15,20 @@ eigen_avs_node_api_server_endpoint: 0.0.0.0:8080
 db_path: /app/data/
 # enable log colors
 enable_log_color: true
+
+###############################################################################
+####### TODO: Operators please update below values for your node ##############
+###############################################################################
+
+# GRPC server on which the operator listens for messages from the middleware
+public_task_server_endpoint: <your_public_ip_address>:9010
+# Registration private key store path
+registration_private_key_store_path: <path_to_private_key_store>
+# Password to access the private key store
+registration_private_key_password: <password>
+# Aethos signing private key store path
+aethos_signing_private_key_store_path: <path_to_private_key_store>
+# Password to access the signing private key store
+aethos_signing_private_key_password: <password>
+# Comma separated list of Mainnet archive node URLs
+eth_rpc_urls: <https://rpc.abc.com,https://rpc.def.com>
