@@ -27,8 +27,8 @@ registration_private_key_store_path: <path_to_private_key_store>
 # Password to access the private key store
 registration_private_key_password: <password>
 # Predicate signing private key store path
-predicate_ signing_private_key_store_path: <path_to_private_key_store>
+predicate_signing_private_key_store_path: <path_to_private_key_store>
 # Password to access the signing private key store
-predicate_ signing_private_key_password: <password>
+predicate_signing_private_key_password: <password>
 # Comma separated list of Holesky RPC URLs e.g. [https://holesky.abc.io/v3/your-api-key, https://holesky.def.io/v3/your-api-key]
 eth_rpc_urls: []
