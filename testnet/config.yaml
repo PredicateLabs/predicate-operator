@@ -1,6 +1,6 @@
 environment: production
 # Aethos ServiceManager Proxy Contract
-service_manager_contract: 0xdE93E0dA148e1919bb7f33cd8847F96e45791210
+service_manager_contract: 0x4FC1132230fE16f67531D82ACbB9d78993B23825
 ## Eigenlayer AVS Directory Contract (Holesky)
 eigen_avs_directory_contract: 0x055733000064333CaDDbC92763c58BF0192fFeBf
 # Internal GRPC server the public server forwards messages to
