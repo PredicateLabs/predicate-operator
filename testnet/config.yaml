@@ -1,5 +1,5 @@
 environment: production
-# Aethos ServiceManager Proxy Contract
+# Predicate ServiceManager Proxy Contract
 service_manager_contract: 0x4FC1132230fE16f67531D82ACbB9d78993B23825
 ## Eigenlayer AVS Directory Contract (Holesky)
 eigen_avs_directory_contract: 0x055733000064333CaDDbC92763c58BF0192fFeBf
