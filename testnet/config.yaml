@@ -6,7 +6,7 @@ eigen_avs_directory_contract: 0x055733000064333CaDDbC92763c58BF0192fFeBf
 # Internal GRPC server the public server forwards messages to
 internal_task_server_endpoint: 0.0.0.0:9010
 # Middleware DNS and port
-middleware_server_endpoint: holesky.task.predicate.io:50051
+middleware_server_endpoint: testnet.task.predicate.io:50051
 # Encompasses operator metrics including eigen metrics
 metrics_server_endpoint: 0.0.0.0:9090
 # Eigen avs node spec compliance https://eigen.nethermind.io/docs/spec/intro
