@@ -20,6 +20,7 @@ enable_log_color: true
 ####### TODO: Operators please update below values for your node ##############
 ###############################################################################
 
+# Note: Ensure traffic from Predicate IP (3.16.7.32:9010/tcp) is whitelisted to pass health check
 # GRPC server on which the operator listens for messages from the middleware
 public_task_server_endpoint: <your_public_ip_address>:9010
 # Registration private key store path
