@@ -1,6 +1,6 @@
 environment: production
 # Predicate ServiceManager Proxy Contract
-service_manager_contract: 0x07E26BF8060e33fA3771d88128b75493750515c1
+service_manager_contract: 0xaCB91045B8bBa06f9026e1A30855B6C4A1c5BaC6
 # Eigenlayer AVS Directory Contract (Ethereum Mainnet)
 eigen_avs_directory_contract: 0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF
 # Internal GRPC server the public server forwards messages to
@@ -20,6 +20,7 @@ enable_log_color: true
 ####### TODO: Operators please update below values for your node ##############
 ###############################################################################
 
+# Note: Ensure traffic from Predicate IP (3.16.7.32:9010/tcp) is whitelisted to pass health check
 # GRPC server on which the operator listens for messages from the middleware
 public_task_server_endpoint: <your_public_ip_address>:9010
 # Registration private key store path
