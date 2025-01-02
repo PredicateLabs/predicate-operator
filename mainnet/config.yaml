@@ -1,6 +1,6 @@
 environment: production
 # Predicate ServiceManager Proxy Contract
-service_manager_contract: 0xaCB91045B8bBa06f9026e1A30855B6C4A1c5BaC6
+service_manager_contract: 0xf6f4A30EeF7cf51Ed4Ee1415fB3bFDAf3694B0d2
 # Eigenlayer AVS Directory Contract (Ethereum Mainnet)
 eigen_avs_directory_contract: 0x135DDa560e946695d6f155dACaFC6f1F25C1F5AF
 # Internal GRPC server the public server forwards messages to

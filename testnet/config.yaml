@@ -1,6 +1,6 @@
 environment: production
 # Predicate ServiceManager Proxy Contract
-service_manager_contract: 0x4FC1132230fE16f67531D82ACbB9d78993B23825
+service_manager_contract: 0xc75F360e4F801F61975a425c405f1472c550ef55
 ## Eigenlayer AVS Directory Contract (Holesky)
 eigen_avs_directory_contract: 0x055733000064333CaDDbC92763c58BF0192fFeBf
 # Internal GRPC server the public server forwards messages to
