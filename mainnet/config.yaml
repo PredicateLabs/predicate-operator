@@ -11,8 +11,7 @@ middleware_server_endpoint: task.predicate.io:50051
 metrics_server_endpoint: 0.0.0.0:9090
 # Eigen avs node spec compliance https://eigen.nethermind.io/docs/spec/intro
 eigen_avs_node_api_server_endpoint: 0.0.0.0:8080
-# db path
-db_path: /app/data/
+
 # enable log colors
 enable_log_color: true
 
